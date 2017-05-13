@@ -15,15 +15,22 @@ public:
 	GetContents();
 	~GetContents();
 
-	bool GetCSVFile(const string& filename, vector<vector<string>>& table, const char delimiter = ',');
-	bool GetCSVFile2(const string& filename, vector<vector<string>>& table, const char delimiter = ',');
+	bool GetCSVFile(const string& filename
+				, vector<vector<string>>& table
+				, const char delimiter = ',');
+	bool GetCSVFile2(const string& filename
+				, vector<vector<string>>& table
+				, const char delimiter = ',');
 	bool GetCSVString(const string & csvdata, vector<string> & table);
-	bool GetCSVString2(const string & csvdata, vector<vector<string>>& table, const char delimiter = ',');
+	bool GetCSVString2(const string & csvdata
+				, vector<vector<string>>& table
+				, const char delimiter = ',');
 
 	int  GetCSVFileSize(const string& filename, fpos_t *ft);
 	int	 ReadFileToString(const string& filename, string& strData);
 
 	// 2ï™íTçı
-	int  BsearchCSV(string key, vector<vector<string>>& table, vector<string> &resultStr);
+	int  BsearchCSV(string key, vector<vector<string>>& table
+			, vector<string> &resultStr);
 };
 

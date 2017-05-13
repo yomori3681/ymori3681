@@ -17,14 +17,20 @@ GetContents::GetContents()
 GetContents::~GetContents()
 {
 }
-// ----------------------------------------------------------------------------
-//メソッド名	：	GetCSVFile2
-//	機能		：	CSVファイル読み込み [CSVファイル読み込み高速化バージョン]
-//	引数		：	const string& filename		（I)	CSVファイル名
-//					vector<vector<string>>& table(O)	読み込み結果(行・カラム単位)
-//					onst char delimiter			（I)	CSVファイルの区切り文字				
-// -----------------------------------------------------------------------------
-bool GetContents::GetCSVFile2(const string& filename, vector<vector<string>>& table, const char delimiter)
+
+//       1         2         3         4         5         6         7 
+//3456789012345678901234567890123456789012345678901234567890123456789012345678
+// ---------------------------------------------------------------------------
+//メソッド名：	GetCSVFile2
+//	機能	：	CSVファイル読み込み [CSVファイル読み込み高速化バージョン]
+//	引数	：	const string& filename		（I)	CSVファイル名
+//				vector<vector<string>>& table(O)	読み込み結果
+//													(行・カラム単位)
+//				const char delimiter		（I)	CSVファイルの区切り文字
+// ---------------------------------------------------------------------------
+bool GetContents::GetCSVFile2(const string& filename
+								, vector<vector<string>>& table
+								, const char delimiter)
 {
 	bool bRet = false;
 	std::string strData;
@@ -37,15 +43,20 @@ bool GetContents::GetCSVFile2(const string& filename, vector<vector<string>>& ta
 	return(GetCSVString2(strData, table, delimiter));
 }
 
-// ----------------------------------------------------------------------------
-//メソッド名	：	GetCSVFile
-//	機能		：	CSVファイル読み込み
-//	引数		：	const string& filename		（I)	CSVファイル名
-//					vector<vector<string>>& table(O)	読み込み結果(行・カラム単位)
-//					onst char delimiter			（I)	CSVファイルの区切り文字				
-// -----------------------------------------------------------------------------
+//       1         2         3         4         5         6         7 
+//3456789012345678901234567890123456789012345678901234567890123456789012345678
+// ---------------------------------------------------------------------------
+//メソッド名：	GetCSVFile
+//	機能	：	CSVファイル読み込み
+//	引数	：	const string& filename		（I)	CSVファイル名
+//				vector<vector<string>>& table(O)	読み込み結果
+//													(行・カラム単位)
+//				const char delimiter		（I)	CSVファイルの区切り文字
+// --------------------------------------------------------------------------
 
-bool GetContents::GetCSVFile(const string& filename, vector<vector<string>>& table, const char delimiter)
+bool GetContents::GetCSVFile(const string& filename
+					, vector<vector<string>>& table
+					, const char delimiter)
 {
 	bool bRet = true;
 
@@ -83,13 +94,15 @@ bool GetContents::GetCSVFile(const string& filename, vector<vector<string>>& tab
 }
 
 
-// ----------------------------------------------------------------------------
-//メソッド名	：	GetCSVString
-//	機能		：	CSVデータをvector型データに格納する
-//	引数		：	const string & csvdata		(I)	CSVデータ
-//					vector<string>& table		(O)	読み込み結果(行単位)
-//					onst char delimiter			(I)	CSVファイルの区切り文字				
-// -----------------------------------------------------------------------------
+//       1         2         3         4         5         6         7 
+//3456789012345678901234567890123456789012345678901234567890123456789012345678
+// ---------------------------------------------------------------------------
+//メソッド名：	GetCSVString
+//	機能	：	CSVデータをvector型データに格納する
+//	引数	：	const string & csvdata		(I)	CSVデータ
+//				vector<string>& table		(O)	読み込み結果(行単位)
+//				const char delimiter		(I)	CSVファイルの区切り文字	
+// ---------------------------------------------------------------------------
 
 bool GetContents::GetCSVString(const string & csvdata, vector<string>& table)
 {
@@ -106,15 +119,20 @@ bool GetContents::GetCSVString(const string & csvdata, vector<string>& table)
 	return true;
 }
 
-// ----------------------------------------------------------------------------
-//メソッド名	：	GetCSVString2
-//	機能		：	CSVデータをvector型データに格納する
-//	引数		：	const string & csvdata		（I)	CSVデータ
-//					vector<vector<string>>& table(O)	読み込み結果(行・カラム単位)
-//					onst char delimiter			（I)	CSVファイルの区切り文字				
-// -----------------------------------------------------------------------------
+//       1         2         3         4         5         6         7 
+//3456789012345678901234567890123456789012345678901234567890123456789012345678
+// ---------------------------------------------------------------------------
+//メソッド名：	GetCSVString2
+//	機能	：	CSVデータをvector型データに格納する
+//	引数	：	const string & csvdata		（I)	CSVデータ
+//				vector<vector<string>>& table(O)	読み込み結果
+//													(行・カラム単位)
+//				const char delimiter		（I)	CSVファイルの区切り文字
+// -------------------------------------------------------------------------
 
-bool GetContents::GetCSVString2(const string & csvdata, vector<vector<string>>& table, const char delimiter)
+bool GetContents::GetCSVString2(const string & csvdata
+								, vector<vector<string>>& table
+								, const char delimiter)
 {
 	bool bRet = true;
 
@@ -142,12 +160,14 @@ bool GetContents::GetCSVString2(const string & csvdata, vector<vector<string>>& 
 	return bRet;
 }
 
-// ----------------------------------------------------------------------------
-//メソッド名	：	GetCSVFileSize
-//	機能		：	CSVファイルのファイルサイズを取得する
-//	引数		：	const string& filename		(I)	CSVファイル名
-//					fpos_t* ft					(O)	ファイルサイズ
-// -----------------------------------------------------------------------------
+//       1         2         3         4         5         6         7 
+//3456789012345678901234567890123456789012345678901234567890123456789012345678
+// ---------------------------------------------------------------------------
+//メソッド名：	GetCSVFileSize
+//	機能	：	CSVファイルのファイルサイズを取得する
+//	引数	：	const string& filename		(I)	CSVファイル名
+//				fpos_t* ft					(O)	ファイルサイズ
+// ---------------------------------------------------------------------------
 
 int GetContents::GetCSVFileSize(const string & filename, fpos_t* ft)
 {
@@ -166,12 +186,15 @@ int GetContents::GetCSVFileSize(const string & filename, fpos_t* ft)
 	return 0;
 }
 
-// ----------------------------------------------------------------------------
-//メソッド名	：	ReadFileToString
-//	機能		：	CSVファイル読み込みstring型データに保存する
-//	引数		：	const string& filename		(I)	CSVファイル名
-//					string& strData				(O)	読み込み結果(１ファイル一括読み込み)
-// -----------------------------------------------------------------------------
+//       1         2         3         4         5         6         7 
+//3456789012345678901234567890123456789012345678901234567890123456789012345678
+// ---------------------------------------------------------------------------
+//メソッド名：	ReadFileToString
+//	機能	：	CSVファイル読み込みstring型データに保存する
+//	引数	：	const string& filename		(I)	CSVファイル名
+//				string& strData				(O)	読み込み結果
+//												(１ファイル一括読み込み)
+// ---------------------------------------------------------------------------
 
 int GetContents::ReadFileToString(const string & filename, string & strData)
 {
@@ -191,7 +214,22 @@ int GetContents::ReadFileToString(const string & filename, string & strData)
 	return 0;
 }
 
-int GetContents::BsearchCSV(string  key, vector<vector<string>>& table , vector<string> &resultStr)
+//       1         2         3         4         5         6         7 
+//3456789012345678901234567890123456789012345678901234567890123456789012345678
+// ---------------------------------------------------------------------------
+//メソッド名：	BsearchCSV
+//	機能	：	２分探索をする
+//	引数	：	string  key					（I)	探索キー
+//				vector<vector<string>>& table(I)	読み込み結果
+//													(行・カラム単位)
+//				vector<string> &resultStr	 (O)	検索成功の場合、
+//													1行分のdデータ
+//  戻り値	：	1: 検索成功　0：検索成功
+// ---------------------------------------------------------------------------
+
+int GetContents::BsearchCSV(string  key
+						, vector<vector<string>>& table 
+						, vector<string> &resultStr)
 {
 	int iRet = 0;
 	int left = 0;					/* start key of index */
@@ -202,7 +240,8 @@ int GetContents::BsearchCSV(string  key, vector<vector<string>>& table , vector<
 		mid = (left + right) / 2  ; /* calc of middle key */
 #if 0
 		char buff[256];
-		sprintf(buff, "left:3%d mid:%3d right:%3d  %s\ %s", left,mid, right, table[mid][0].c_str(),key.c_str());
+		sprintf(buff, "left:3%d mid:%3d right:%3d  %s\ %s"
+			, left,mid, right, table[mid][0].c_str(),key.c_str());
 		puts(buff);
 #endif
 		if (table[mid][0] == key) {
