@@ -132,4 +132,33 @@ int GetContents::ReadFileToString(const string & filename, string & strData)
 	return 0;
 }
 
+int GetContents::BsearchCSV(string  key, vector<vector<string>>& table , vector<string> &resultStr)
+{
+	int iRet = 0;
+	int left = 0;					/* start key of index */
+	int right = table.size() -1;	/* end   key of index ( SIZE -1 !!!) */
+	int mid = 0;					/* middle key of index */
+
+	while (left <= right) {
+		mid = (left + right) / 2  ; /* calc of middle key */
+#if 0
+		char buff[256];
+		sprintf(buff, "left:3%d mid:%3d right:%3d  %s\ %s", left,mid, right, table[mid][0].c_str(),key.c_str());
+		puts(buff);
+#endif
+		if (table[mid][0] == key) {
+			resultStr = table[mid];
+			iRet = 1;
+			return iRet;
+		}
+		else if (table[mid][0] < key) {
+			left = mid + 1; /* adjustment of left(start) key */
+		}
+		else {
+			right = mid - 1; /* adjustment of right(end) key */
+		}
+	}
+	return iRet;
+}
+
 

@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	fpos_t ft;							// ファイルポインタ
 	string csvData;						// CSVファイルの内容 1ファイル分
 	vector<string>	oneLineDiv;			// 読み込んだCSVファイルの内容 1行分割
-	vector<string>	itr;				// 読み込んだCSVファイルの内容 1行分割（イテレータ)
+	vector<string>::iterator itr;		// 読み込んだCSVファイルの内容 1行分割（イテレータ)
 
 
 	// CSV取得クラス
@@ -64,23 +64,12 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-	// 確認のためにコンソールに内容を出力する
+	// 確認のためにコンソールに内容を出力する(第一カラムのみ）
 	cout << " --- STEP3 GetCSVString2 結果出力 ---" << endl;
 	for (int row = 0; row < table2.size(); row++)
 	{
-		vector<string> record;  // １行分の内容
-		record = table2[row];    // １行分読み込む
-								// １セルずつ読み込んでコンソールに出力する
-		for (int column = 0; column < record.size(); column++)
-		{
-			cout << record[column];
-			// 末尾の列でない場合はカンマを出力する
-			if (column < record.size() - 1)
-			{
-				cout << ",";
-			}
-		}
-		cout << endl;
+		std::string str = table2[row][0];
+		cout << str << endl;
 	}
 	cout << endl;
 
@@ -112,6 +101,20 @@ int main(int argc, char **argv)
 		}
 		cout << endl;
 	}
+
+	// ------------------------------------------
+	//  --- STEP5 二分探索 ---
+	// ------------------------------------------
+	vector<string> strResult;
+	int	   iRet;
+	std::string key = "1";
+	iRet = clsGetCSV.BsearchCSV(key, table2, strResult);
+	cout << "Ret[" << std::to_string(iRet) << "]" << endl;
+	for (vector<string>::iterator itr = strResult.begin(); itr != strResult.end(); ++itr) {
+		cout << "[" <<(*itr) << "]" << endl;
+	}
+	cout << endl;
+
 
     return 0;
 }

@@ -21,5 +21,8 @@ public:
 
 	int  GetCSVFileSize(const string& filename, fpos_t *ft);
 	int	 ReadFileToString(const string& filename, string& strData);
+
+	// 2•ª’Tõ
+	int  BsearchCSV(string key, vector<vector<string>>& table, vector<string> &resultStr);
 };
 
