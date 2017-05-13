@@ -16,6 +16,7 @@ public:
 	~GetContents();
 
 	bool GetCSVFile(const string& filename, vector<vector<string>>& table, const char delimiter = ',');
+	bool GetCSVFile2(const string& filename, vector<vector<string>>& table, const char delimiter = ',');
 	bool GetCSVString(const string & csvdata, vector<string> & table);
 	bool GetCSVString2(const string & csvdata, vector<vector<string>>& table, const char delimiter = ',');
 

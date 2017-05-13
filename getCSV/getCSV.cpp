@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 	// ------------------------------------------
 	//  --- STEP4 GetCSVFile ---
 	// ------------------------------------------
-	status = clsGetCSV.GetCSVFile(filename, table);
+	status = clsGetCSV.GetCSVFile2(filename, table);
 	if (!status)
 	{
 		// 取得に失敗した場合はエラー終了する
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 	}
 
 	// 確認のためにコンソールに内容を出力する
-	cout << " --- STEP4 GetCSVFile 結果出力 ---" << endl;
+	cout << " --- STEP4 GetCSVFile2 結果出力 ---" << endl;
 	for (int row = 0; row < table.size(); row++)
 	{
 		vector<string> record;  // １行分の内容
