@@ -101,7 +101,6 @@ bool GetContents::GetCSVFile(const string& filename
 //	機能	：	CSVデータをvector型データに格納する
 //	引数	：	const string & csvdata		(I)	CSVデータ
 //				vector<string>& table		(O)	読み込み結果(行単位)
-//				const char delimiter		(I)	CSVファイルの区切り文字	
 // ---------------------------------------------------------------------------
 
 bool GetContents::GetCSVString(const string & csvdata, vector<string>& table)
@@ -219,7 +218,7 @@ int GetContents::ReadFileToString(const string & filename, string & strData)
 // ---------------------------------------------------------------------------
 //メソッド名：	BsearchCSV
 //	機能	：	２分探索をする
-//	引数	：	string  key					（I)	探索キー
+//	引数	：	string  key					（I)	探索キー(固定長)
 //				vector<vector<string>>& table(I)	読み込み結果
 //													(行・カラム単位)
 //				vector<string> &resultStr	 (O)	検索成功の場合、
@@ -238,9 +237,9 @@ int GetContents::BsearchCSV(string  key
 
 	while (left <= right) {
 		mid = (left + right) / 2  ; /* calc of middle key */
-#if 0
+#if 1
 		char buff[256];
-		sprintf(buff, "left:3%d mid:%3d right:%3d  %s\ %s"
+		sprintf(buff, "left:%3d mid:%3d right:%3d  table[mid][%s] key[%s]"
 			, left,mid, right, table[mid][0].c_str(),key.c_str());
 		puts(buff);
 #endif

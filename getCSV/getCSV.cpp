@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 	// ------------------------------------------
 	//  --- STEP3 GetCSVString2 ---
 	// ------------------------------------------
-	status = clsGetCSV.GetCSVString2(csvData, table2);
+	status = clsGetCSV.GetCSVString2(csvData, table);
 	if (!status)
 	{
 		// 取得に失敗した場合はエラー終了する
@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 	// ------------------------------------------
 	//  --- STEP4 GetCSVFile ---
 	// ------------------------------------------
-	status = clsGetCSV.GetCSVFile2(filename, table);
+	status = clsGetCSV.GetCSVFile2(filename, table2);
 	if (!status)
 	{
 		// 取得に失敗した場合はエラー終了する
@@ -85,10 +85,10 @@ int main(int argc, char **argv)
 
 	// 確認のためにコンソールに内容を出力する
 	cout << " --- STEP4 GetCSVFile2 結果出力 ---" << endl;
-	for (int row = 0; row < table.size(); row++)
+	for (int row = 0; row < table2.size(); row++)
 	{
 		vector<string> record;  // １行分の内容
-		record = table[row];    // １行分読み込む
+		record = table2[row];    // １行分読み込む
 								// １セルずつ読み込んでコンソールに出力する
 		for (int column = 0; column < record.size(); column++)
 		{
@@ -107,7 +107,7 @@ int main(int argc, char **argv)
 	// ------------------------------------------
 	vector<string> strResult;
 	int	   iRet;
-	std::string key = "1";
+	std::string key = argv[2];
 	iRet = clsGetCSV.BsearchCSV(key, table2, strResult);
 	cout << "Ret[" << std::to_string(iRet) << "]" << endl;
 	for (vector<string>::iterator itr = strResult.begin(); itr != strResult.end(); ++itr) {
